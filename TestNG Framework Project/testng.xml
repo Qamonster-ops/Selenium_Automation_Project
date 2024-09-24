@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+//to run tests parrallel we use parallel and thread count is used for how many test cases needs to run
+<suite name="Loan Department parallel ="tests" thread-count="6">
+	
+	//This gives us to use the listener module after every run we need to give the correct path
+	<Listeners>
+		<Listener class-name=test.Listeners/>
+	</Listeners>
+	
+	//to give urls and username and password we need to use this kind instead of hard coading
+	<parameter name= "URL"  value = "facebook.com"/>
+	
+	//the parameter can be used in suite level and class level
+	
+  <test  name="personal loan">
+	  <parameter name= "URL"  value = "personalloan.com"/>
+	  <parameter name= "APIKey/username"  value = "personalloan.com"/>
+	 
+	 // we can give only these two lines of codes to run the whole package 
+	  instead of giving class and method names 
+	  <package>
+	  	<package name = "test/>"
+	  	 </package>
+	  	 
+	  //in the above code if we change and add the groups it will only run that particular test cases which we metioned as group 
+	  	<groups>
+	  		<run>
+	  			include name = "Smoke"/
+	  		</run
+	  	</groups>
+	  
+    <classes>
+      <class name="test.Basics"/>
+      	<methods>
+			  <include name = "Demo"/>
+      	</methods>
+      <class name="test.day1demo"/>
+      <class name="test.day3demo"/>
+    </classes>
+  </test>  Test 
+ 
+ 
+ 
+  
+  //if we block the above code code only the selected packages and tests will be run
+  
+  
+  
+  
+  
+  //if in demo day3 home is different test package which not comes under personal loan
+  then add the test steps as below
+  
+  to excute only some test cases and one should be excluded then use the below code and to delete all only to include 
+  particular method then use include as above
+  
+  to exclude whole package like mobile automation test cases to exclude them then use the below code
+  
+  <test name ="car loan">
+	  <classes>
+	  <class name ="test.day2demo">
+	  	<methods>
+			  <exclude name = "Mobile.*"/> --- this is the sytanx for excluding or including the whole package
+			  <exclude name = "Mobilelogincarloan"/>
+	  	</methods>
+	  	</class>
+	  
+	  </classes>
+  </test>
+
+  
+  
+  
+  
+</suite> <!-- Suite -->
